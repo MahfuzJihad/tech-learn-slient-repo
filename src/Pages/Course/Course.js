@@ -1,19 +1,19 @@
 import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 const Course = () => {
     return (
         <div>
             <h3>Tech Leraning Course.</h3>
             <Container>
-                <Row>
+                {/* <Row>
                     <Col lg="3">
                         <h4>Category List</h4>
                     </Col>
                     <Col lg="9">
                         <h4>Course list</h4>
                     </Col>
-                </Row>
+                </Row> */}
             </Container>
         </div>
     );
