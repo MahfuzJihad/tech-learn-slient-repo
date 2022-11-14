@@ -5,13 +5,14 @@ import Form from 'react-bootstrap/Form';
 
 const Registar = () => {
 
-    const handleSubmit = event => {
+    const handleSignup = event => {
         event.preventDefault();
+    
     }
 
     return (
         <div>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSignup}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Your Name</Form.Label>
                     <Form.Control type="name" placeholder="Enter Full Name" />
