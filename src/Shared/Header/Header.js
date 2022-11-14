@@ -5,11 +5,20 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { FaAppleAlt, FaUser } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import Button from 'react-bootstrap/Button';
 
 
 const Header = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
     return (
         <Navbar bg="dark" variant="dark">
             <Container>
@@ -20,12 +29,27 @@ const Header = () => {
                         <Nav.Link href="/course">Course</Nav.Link>
                         <Nav.Link href="/blog">Blog</Nav.Link>
                         <Nav.Link href="/faq">FAQ</Nav.Link>
-                        <Nav.Link href="/login">{user?.displayName}</Nav.Link>
+                        <Nav.Link href="/login">
+                            {
+                                user?.uid ?
+                                    <>
+                                        <span>{user?.displayName}</span>
+                                        <Button variant="primary" onClick={handleLogOut}>Log out</Button>
+                                    </>
+                                    :
+                                    <>
+                                        <Link to='/signin'>Login</Link>
+                                        <Link to='/registar'>Registar</Link>
+                                    </>
+
+                            }
+
+                        </Nav.Link>
                         <Nav.Link href="/profile">
-                            {user.photoURL ?
+                            {user?.photoURL ?
                                 <Image
                                     style={{ height: '30px' }} roundedCircle
-                                    src={user.photoURL}></Image>
+                                    src={user?.photoURL}></Image>
                                 : <FaUser></FaUser>
                             }
                         </Nav.Link>

@@ -8,6 +8,14 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
+            {/* <Container>
+                <Row>
+                    <Col lg='3'><Course></Course></Col>
+                    <Col lg='9'>
+                       
+                    </Col>
+                </Row>
+            </Container> */}
             <Outlet></Outlet>
             <Footer></Footer>
         </div>
