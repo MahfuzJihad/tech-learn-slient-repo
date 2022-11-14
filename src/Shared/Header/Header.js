@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { FaAppleAlt, FaUser } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import Button from 'react-bootstrap/Button';
 
@@ -38,8 +38,10 @@ const Header = () => {
                                     </>
                                     :
                                     <>
-                                        <Link to='/signin'>Login</Link>
-                                        <Link to='/registar'>Registar</Link>
+                                    <Nav.Link href="/login">Login</Nav.Link>
+                                    <Nav.Link href="/registar">Registar</Nav.Link>
+                                        {/* <Link to='/login'>Login</Link> */}
+                                        {/* <Link to='/registar'>Registar</Link> */}
                                     </>
 
                             }
